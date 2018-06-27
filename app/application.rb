@@ -35,18 +35,18 @@ class Application
 
   def handle_search(search_term)
     if @@items.include?(search_term)
-      resp.write "#{search_term} is one of our items"
+      return "#{search_term} is one of our items"
     else
-      resp.write "Couldn't find #{search_term}"
+      return "Couldn't find #{search_term}"
     end
   end
   
   def add_to_cart(item)
     if @@items.include?(item)
       @@cart << item
-      return "#{item} - Added to your cart!"
+      resp.write "added #{item}!"
     else
-      return "We don't have that item"
+      resp.write "We don't have that item"
     end
   end
   
